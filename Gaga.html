@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Леді Гага</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #111;
+    color: white;
+}
+
+header {
+    background: linear-gradient(90deg, purple, black);
+    padding: 20px;
+    text-align: center;
+}
+
+.square {
+    width: 40px;
+    height: 40px;
+    background: hotpink;
+    margin: 10px auto;
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background: #222;
+    flex-wrap: wrap;
+}
+
+nav button {
+    background: transparent;
+    border: 2px solid purple;
+    color: white;
+    padding: 12px 18px;
+    margin: 8px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+nav button:hover {
+    background: linear-gradient(45deg, purple, hotpink);
+    transform: translateY(-3px);
+    box-shadow: 0 0 10px hotpink;
+}
+
+.tab {
+    display: none;
+    padding: 20px;
+    text-align: center;
+    animation: fade 0.5s;
+}
+
+@keyframes fade {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.active {
+    display: block;
+}
+
+img {
+    width: 320px;
+    max-width: 90%;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+iframe {
+    max-width: 90%;
+    height: 200px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+input {
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    border-radius: 6px;
+    border: none;
+}
+
+.login-btn {
+    padding: 10px 20px;
+    border: none;
+    background: purple;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background: hotpink;
+}
+
+/* адаптація */
+@media (min-width: 768px) {
+    iframe {
+        width: 560px;
+        height: 315px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Леді Гага</h1>
+    <div class="square"></div>
+    <p>Американська співачка та ікона поп-музики</p>
+</header>
+
+<nav>
+    <button onclick="openTab('about')">Про неї</button>
+    <button onclick="openTab('albums')">Альбоми</button>
+    <button onclick="openTab('facts')">Факти</button>
+    <button onclick="openTab('videos')">Відео</button>
+    <button onclick="openTab('login')">Увійти</button>
+</nav>
+
+<div id="about" class="tab active">
+    <h2>Про Леді Гагу</h2>
+    <p>Леді Гага — одна з найвідоміших співачок у світі. Народилася 28 березня 1986 у місті Ньо-Йорк, у сім'ї італійських емігрантів. Кар'єра почалася 2008 року.</p>
+    <p>Її стиль є унікальним і впізнаваним у всьому світі.</p>
+
+    
+    <img src="artpop" >
+</div>
+
+<div id="albums" class="tab">
+    <h2>Альбоми</h2>
+    <p>Альбоми:</p>
+    <ul>
+        <li>The Fame/monster</li>
+        <li>Born This Way</li>
+        <li>Artpop</li>
+        <li>Joanna</li>
+        <li>Chromatica</li>
+        <li>Mayhem</li>
+    </ul>
+
+    <img src="btw ">
+</div>
+
+<div id="facts" class="tab">
+    <h2>Цікаві факти</h2>
+    <p>• Має такі нагороди: Grammy, Oscar</p>
+    <p>• Відома своїми образами (м'ясне плаття)</p>
+    <p>• Знімалася у фільмах. Такі як: Диявол носить прада 2, Дім Гуччі, Джокер 2, Народжена зіркою (фільм приніс оскар їй)</p>
+
+    <img scr="the fame">
+     <img scr="dress">
+
+</div>
+
+<div id="videos" class="tab">
+    <h2>Відео</h2>
+
+    <iframe src="https://www.youtube.com/embed/VX5ZNRiaJag" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/R-Loodl2cgA" allowfullscreen></iframe>
+</div>
+
+<div id="login" class="tab">
+    <h2>Вхід</h2>
+
+    <input type="text" placeholder="Логін"><br>
+    <input type="password" placeholder="Пароль"><br>
+
+    <button class="login-btn" onclick="login()">OK</button>
+</div>
+
+<script>
+function openTab(tabName) {
+    let tabs = document.getElementsByClassName("tab");
+    for (let i = 0; i < tabs.length; i++) {
+        tabs[i].classList.remove("active");
+    }
+    document.getElementById(tabName).classList.add("active");
+}
+
+function login() {
+    alert("Успішно!");
+    openTab('about');
+}
+</script>
+
+</body>
+</html>
